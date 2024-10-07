@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Task(models.Model):
@@ -19,6 +20,8 @@ class Task(models.Model):
 
     category=models.CharField(max_length=200,choices=category_choices,default="personal")
 
+
+
     status_choices=(
         ("pending","pending"),
         ("in-progress","in-progress"),
@@ -28,7 +31,7 @@ class Task(models.Model):
     status=models.CharField(max_length=200,choices=status_choices,default="pending")
     updated_date=models.DateField(auto_now=True)
 
-    user=models.CharField(max_length=200)
+    User=models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         

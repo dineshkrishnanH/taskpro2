@@ -13,19 +13,19 @@ class TaskForm(forms.ModelForm):
         
         #fields="__all__"
 
-        exclude=("created_date","status","updated_date",)
+        exclude=("created_date","status","user")
 
         widgets={
             
-            "title":forms.TextInput(attrs={"class":"form-control"}),
+            "title":forms.TextInput(attrs={"class":"form-control",'style': 'background-color: #f0f8ff;'}),
 
-            "description":forms.Textarea(attrs={"class":"form-control"}),
+            "description":forms.Textarea(attrs={"class":"form-control",'style': 'background-color: #f0f8ff;'}),
 
-            "due_date":forms.DateInput(attrs={"class":"form-control","type":"date"}),
+            "due_date":forms.DateInput(attrs={"class":"form-control","type":"date",'style': 'background-color: #f0f8ff;'}),
 
-            "category":forms.Select(attrs={"class":"form-control form-select"}),
+            "category":forms.Select(attrs={"class":"form-control form-select",'style': 'background-color: #f0f8ff;'}),
             
-            "user":forms.TextInput(attrs={"class":"form-control"})
+            "user":forms.TextInput(attrs={"class":"form-control",'style': 'background-color: #f0f8ff;'})
                                            
 
         }
@@ -39,8 +39,12 @@ class RegistrationForm(forms.ModelForm):
 
         fields=["username","email","password"]
 
+        widgets={
+            "password":forms.PasswordInput()
+        }
+
 class SignInForm(forms.Form):
 
-    username=forms.CharField
+    username=forms.CharField()
 
-    Password=forms.CharField
+    password=forms.CharField(widget=forms.PasswordInput())

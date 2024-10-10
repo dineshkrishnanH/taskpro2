@@ -29,9 +29,9 @@ class Task(models.Model):
     )
 
     status=models.CharField(max_length=200,choices=status_choices,default="pending")
-    updated_date=models.DateField(auto_now=True)
+    
 
-    User=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         

@@ -42,4 +42,7 @@ urlpatterns = [
 
     path("signout/",views.SignOutView.as_view(),name="signout"),
 
+    path("dashboard/",views.DashBoardView.as_view()),
+
+
 ]
